@@ -16,11 +16,16 @@ sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials())
 url = input("enter spotify url: ")
 
 try:
-    response = sp.track(url)
-except Exception:
+    if (url.__contains__("episode")):
+        response = sp.episode(url, market="DE")
+        image_url = response['images'][0]['url']
+    else:
+        response = sp.track(url)
+        image_url = response['album']['images'][0]['url']
+except Exception:       
     print("please enter a valid spotify id")
     quit()
-image_url = response['album']['images'][0]['url']
+
 song_name = response['name']
 urllib.request.urlretrieve(image_url, "thumbnail.jpg")
 image = Image.open("thumbnail.jpg")
