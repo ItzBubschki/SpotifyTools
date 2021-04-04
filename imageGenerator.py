@@ -39,9 +39,9 @@ image_copy.save("resized.jpg")
 
 reciever = input("Enter your mail adress: ")
 if len(reciever) > 0:
-    s = smtplib.SMTP(host='smtp.strato.de', port=587)
+    s = smtplib.SMTP(host=os.environ['SMTP_HOST'], port=os.environ['SMTP_PORT'])
     s.starttls()
-    s.login("laurin-bot@niemeyer.de", os.environ['EMAIL_PASSWORD'])
+    s.login(os.environ['EMAIL_SENDER'], os.environ['EMAIL_PASSWORD'])
     msg = MIMEMultipart()
     msg['From'] = os.environ['EMAIL_SENDER']
     msg['To'] = reciever
