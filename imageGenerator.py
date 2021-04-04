@@ -43,7 +43,7 @@ if len(reciever) > 0:
     s.starttls()
     s.login("laurin-bot@niemeyer.de", os.environ['EMAIL_PASSWORD'])
     msg = MIMEMultipart()
-    msg['From'] = "laurin-bot@niemeyer.de"
+    msg['From'] = os.environ['EMAIL_SENDER']
     msg['To'] = reciever
     msg['Subject'] = f"thumbnail-{song_name}"
     img_data = open("resized.jpg", 'rb').read()

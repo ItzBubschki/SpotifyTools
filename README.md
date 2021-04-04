@@ -6,6 +6,7 @@ SPOTIPY_CLIENT_ID=<your client id>
 SPOTIPY_CLIENT_SECRET=<your client secret>
 SPOTIPY_REDIRECT_URI=<your redirect url>
 EMAIL_PASSWORD=<your smtp password>
+EMAIL_SENDER=<your email account>
 ```
 
 If you want to use the playlist adder you have to use ngrok to point to a random port on your system and add the ngrok url on the spotify dashboard to your allowed redirect urls.
