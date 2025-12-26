@@ -2,12 +2,12 @@ import sys
 import datetime
 from spotipy.oauth2 import SpotifyOAuth
 import spotipy
-from dotenv import load_dotenv, dotenv_values
+from dotenv import load_dotenv
+import os
 
 load_dotenv()
-env = dotenv_values()
 
-REFRESH_TOKEN = env.get('SPOTIPY_REFRESH_TOKEN')
+REFRESH_TOKEN = os.environ. get('SPOTIPY_REFRESH_TOKEN')
 
 if not REFRESH_TOKEN:
     raise Exception('Missing required environment variable: SPOTIPY_REFRESH_TOKEN')
